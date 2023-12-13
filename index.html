@@ -1,0 +1,748 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						} @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>index</title>
+</head>
+<body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#论文笔记-lvm-纯视觉的通用大模型-cv的gpt时刻-sequential-modeling-enables-scalable-learning-for-large-vision-models-论文精读">[论文笔记] LVM: 纯视觉的通用大模型, CV的GPT时刻? Sequential Modeling Enables Scalable Learning for Large Vision Models 论文精读</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#0-abstract">0. Abstract</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1-introduction">1. Introduction</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#11-motivation">1.1 Motivation</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#12-contribution">1.2 Contribution</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#13-findings">1.3 Findings</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2-related-work">2. Related Work</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3-data">3. Data</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4-approach">4. Approach</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#41-image-tokenization">4.1 Image Tokenization</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#42-sequence-modeling-of-visual-sentences">4.2 Sequence Modeling of Visual Sentences</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#43-inference-by-visual-prompting">4.3 Inference by Visual Prompting</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5-experimental-results-and-analysis">5. Experimental Results and Analysis</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#51-scalability">5.1 Scalability</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#52-sequential-prompting">5.2 Sequential Prompting</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#53-analogy-prompting">5.3 Analogy Prompting</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#54-miscellaneous-prompts">5.4 Miscellaneous Prompts</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6-limitations">6. Limitations</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='论文笔记-lvm-纯视觉的通用大模型-cv的gpt时刻-sequential-modeling-enables-scalable-learning-for-large-vision-models-论文精读'><span>[论文笔记] LVM: 纯视觉的通用大模型, CV的GPT时刻? Sequential Modeling Enables Scalable Learning for Large Vision Models 论文精读</span></h1><p><span>Author: </span><a href="https://yusijin02.github.io/"><span>Sijin Yu</span></a></p><blockquote><p><strong><span>导读</span></strong></p><p><span>大语言模型无疑是2023年最大的热点之一. 当前, 包括视觉在内的几乎所有方向, 人们都热衷于加入语言的引导. 在此背景下, 一篇纯视觉的大模型无疑吸引人眼球. 该模型吸取大语言模型的成功经验, 创新性地定义了</span><strong><span>视觉句子</span></strong><span>, 并几乎抛弃了此前 CV 的所有训练任务, 仿照大语言模型, 使用</span><strong><span>序列自回归</span></strong><span>任务训练视觉模型, 并</span><strong><span>统一了几乎所有的视觉任务</span></strong><span>. 虽然该模型在下游任务中还不能超越对应任务的 SOTA, 但是这一新颖的方案为接下来的研究提供了大量思路, 称之为又一</span><strong><span>开山之作</span></strong><span>毫不为过.</span></p><p><strong><span>论文信息</span></strong><span>:</span></p><ul><li><p><span>标题: Sequential Modeling Enables Scalable Learning for Large Vision Models</span></p></li><li><p><span>arXiv: </span><a href='https://arxiv.org/abs/2312.00785' target='_blank' class='url'>https://arxiv.org/abs/2312.00785</a></p></li><li><p><span>GitHub: </span><a href='https://github.com/ytongbai/LVM' target='_blank' class='url'>https://github.com/ytongbai/LVM</a><span> (但代码还未开源)</span></p></li></ul><p><span>该论文发表于2023年12月1日, 本博客作于2023年12月7日.</span></p></blockquote><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" style="" href="#论文笔记-lvm-纯视觉的通用大模型-cv的gpt时刻-sequential-modeling-enables-scalable-learning-for-large-vision-models-论文精读">[论文笔记] LVM: 纯视觉的通用大模型, CV的GPT时刻? Sequential Modeling Enables Scalable Learning for Large Vision Models 论文精读</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner" style="" href="#0-abstract">0. Abstract</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n29"><a class="md-toc-inner" style="" href="#1-introduction">1. Introduction</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n30"><a class="md-toc-inner" style="" href="#11-motivation">1.1 Motivation</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n38"><a class="md-toc-inner" style="" href="#12-contribution">1.2 Contribution</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n47"><a class="md-toc-inner" style="" href="#13-findings">1.3 Findings</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n59"><a class="md-toc-inner" style="" href="#2-related-work">2. Related Work</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n68"><a class="md-toc-inner" style="" href="#3-data">3. Data</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n117"><a class="md-toc-inner" style="" href="#4-approach">4. Approach</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a class="md-toc-inner" style="" href="#41-image-tokenization">4.1 Image Tokenization</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n135"><a class="md-toc-inner" style="" href="#42-sequence-modeling-of-visual-sentences">4.2 Sequence Modeling of Visual Sentences</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" style="" href="#43-inference-by-visual-prompting">4.3 Inference by Visual Prompting</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n147"><a class="md-toc-inner" style="" href="#5-experimental-results-and-analysis">5. Experimental Results and Analysis</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n148"><a class="md-toc-inner" style="" href="#51-scalability">5.1 Scalability</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n164"><a class="md-toc-inner" style="" href="#52-sequential-prompting">5.2 Sequential Prompting</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n177"><a class="md-toc-inner" style="" href="#53-analogy-prompting">5.3 Analogy Prompting</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n191"><a class="md-toc-inner" style="" href="#54-miscellaneous-prompts">5.4 Miscellaneous Prompts</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n200"><a class="md-toc-inner" style="" href="#6-limitations">6. Limitations</a></span></p></div><h2 id='0-abstract'><span>0. Abstract</span></h2><ul><li><p><span>我们提出了一种新颖的序列建模方法, 该方法能够在</span><strong><span>不使用任何语言数据</span></strong><span>的情况下学习大视觉模型 (Large Vision Model, LVM).</span></p></li><li><p><span>为了做到这一点, 我们定义了一种通用格式——“视觉句子” (visual sentences), 在这种格式中, 我们可以表示原始图像和视频, 以及语义分割和深度重建等带注释的数据源, 而</span><strong><span>无需超越像素层面的任何元知识</span></strong><span>.</span></p></li><li><p><span>这种多样化的视觉数据 (包含4200亿个标记) 被表示为序列后, 就可以训练模型来最小化交叉熵损失, 以预测下一个标记.</span></p></li><li><p><span>通过在不同规模的模型架构和数据多样性上进行训练, 我们提供了实证证据, 证明我们的模型可以有效地扩展.</span></p></li><li><p><span>在测试时设计合适的视觉提示, 可以解决许多不同的视觉任务.</span></p></li></ul><p>&nbsp;</p><h2 id='1-introduction'><span>1. Introduction</span></h2><h3 id='11-motivation'><span>1.1 Motivation</span></h3><ul><li><p><span>以 GPT 和 LLaMA 为代表的大语言模型震惊世人, 但现在还没有大视觉模型 (LVM).</span></p></li><li><p><span>在动物的世界中, 视觉这一概念并不依赖于语言, 但是许多实验证明, 非人类灵长类动物的视觉和人类非常相似.</span></p></li><li><p><span>因此, 纯视觉、无语言的大模型是完全可能的.</span></p></li></ul><h3 id='12-contribution'><span>1.2 Contribution</span></h3><p><span>本文参考了 LLM 的成功经验, 在以下三个方面做出了努力:</span></p><ul><li><p><strong><span>数据 (Data)</span></strong><span>: 利用了过去几十年中产生的各类带标注的视觉数据源 (包括: 语义分割、深度重建、关键点、3D物体的多视图等), 并且为这些数据</span><strong><span>定义了一种通用的格式</span></strong><span>, 即</span><strong><span>视觉句子 (Visual Sentences)</span></strong><span>, 而不需要任何超越像素层面的知识, 训练集总规模为16.4亿张图像 (帧).</span></p></li><li><p><strong><span>架构 (Architecture)</span></strong><span>: 使用 3-billion 参数的 Transformer 架构. 每张图像映射到 256 个向量量化的 tokens 组成的串.</span></p></li><li><p><strong><span>损失函数 (Loss Function)</span></strong><span>: 参考了自然语言社区的解决方案, 抛弃“完形填空”的 masked token modeling 任务, 采用 GPT 系的预测下一个 token, 即</span><strong><span>序列自回归预测 (sequential autoregressive prediction)</span></strong><span>. 训练模型以最小化预测下一个 token 的交叉熵损失.</span></p></li></ul><h3 id='13-findings'><span>1.3 Findings</span></h3><p><span>借助上述的设计, 发现了一些值得注意的有趣行为:</span></p><ul><li><p><span>随着模型规模和数据量增加, 展现出适当的规模化行为.</span></p></li><li><p><span>不同的视觉任务可以在测试时设计合适的提示来解决, 但结果不像为特定任务训练的定制模型那样高性能.</span></p></li><li><p><span>大量无监督数据对各种标准视觉任务性能有明显益处.</span></p></li><li><p><span>模型略微具有处理超出分布的数据的视觉推理能力.</span></p></li></ul><p>&nbsp;</p><h2 id='2-related-work'><span>2. Related Work</span></h2><ul><li><p><strong><span>预训练视觉模型 (Pretrained Vision Models)</span></strong><span>. 自2015年起, 预训练视觉模型 (如 ImageNet 预训练的AlexNet) 在计算机视觉领域已成标准实践, 但尽管 Transformer 架构带来进步, 这些模型在处理极大数据集 (如 LAION) 时仍面临挑战.</span></p></li><li><p><strong><span>多任务学习和上下文学习 (Multi-task Learning and In-context Learning)</span></strong><span>. 计算机视觉正从传统的单模型单任务设置逐渐转向一个模型执行多个不同任务. 虽然存在多种多任务学习方法, 但它们通常局限于固定的、预定义的任务数量. 最近, 人们</span><strong><span>受大型语言模型中上下文学习启发的方法放弃了任务的概念</span></strong><span>, 而是直接从输入提示中推断任务. 例如, 视觉提示在测试时接收任务输入/输出示例对和查询图像, 将它们合并成一个 2x2 的图像, 并使用修补技术生成所需输出. 然而, 由于这种修补使用了MAE的变体, 这些方法也继承了相同的规模扩展问题.</span></p></li><li><p><strong><span>自回归视觉模型 (Auto-regressive Visual Models)</span></strong><span>. 自回归视觉模型的应用可以追溯至70年前, 最初灵感来源于香农对N-gram语言合成的使用. 随着深度学习模型的兴起, 新的研究用 RNN 或 CNN 替代 N-gram 进行像素合成. 最近, 基于 Transformer 的自回归视觉生成方法被提出, 并在结合语言方面展示了令人印象深刻的图像合成效果.</span></p></li></ul><p>&nbsp;</p><h2 id='3-data'><span>3. Data</span></h2><blockquote><p><em><span>“Data! Data! Data! I can’t make bricks without clay!”</span></em></p></blockquote><p><span>本工作尝试像语言模型一样, 提出一个包含多种任务的通用的数据集, 称为</span><strong><span>统一视觉数据集v1 (Unified Vision Dataset v1, UVDv1)</span></strong><span>. 包含: (1) 未标记的图像, (2) 带视觉注释的图像, (3) 未标记的视频, (4) 带视觉注释的视频, (5) 3D合成对象. 这些数据不包含非视觉的数据 (如文本). UVDv1 包含16.4亿张图像.</span></p><p><span>语言数据具有一个自然的、统一的一维结构, 但是视觉数据并非如此. 这项工作提出, </span><strong><span>将视觉句子 (Visual Sentences) 作为视觉数据的统一单元</span></strong><span>. 简单来说, 一个视觉句子包含一个或多个图像的序列, 后面跟着一个句子结束标记 (EOS).</span></p><p><img src="./img/visual_sentences.jpg" referrerpolicy="no-referrer" alt="visual_sentences"></p><ul><li><p><strong><span>单张图片 (Single images)</span></strong><span>. 视觉句子中的最简单形式: {图像, EOS}. 这里使用了从 LAION 5B 数据集中筛选的14.9亿上图片, 占本工作数据的 88.5%.</span></p></li><li><p><strong><span>图像序列 (Image sequences)</span></strong><span>. 这里占本工作的数据的 4.24%.</span></p><ul><li><p><span>从现有的视频数据集中获取视频数据, 并采用三种不同的步幅 (10, 20, 30) 随机下采样视频, 形成16帧的视觉句子.</span></p></li><li><p><span>利用来自 Objaverse 数据集合成的3D对象, 生成一对象为中心的多视角序列, 涵盖各种对象. 从1.5到2.2之间采样一个半径长度, 从-45度到45度之间采样一个恒定的仰角, 以15度的步长便利对象的不同视图, 渲染24个视图, 总共生成了42000个训练序列和8000个测试序列.</span></p></li><li><p><span>使用来自 ImageNet 的类别, 将相同类别的图像组合在一起, 形成一个16帧的视觉句子.</span></p></li></ul></li><li><p><strong><span>带标注的图像 (Images with annotations)</span></strong><span>. 这里占本工作数据量的 7.15%. 为了以统一的方式处理不同类型的图像注释, </span><strong><span>将所有注释表示为图像</span></strong><span>. 一些任务的数据类型其实已采用这种表示, 如语义分割图、边缘图、深度图、法线图. 对于其它的注释类型:</span></p><ul><li><p><strong><span>目标检测</span></strong><span>: 在每个目标周围叠加带有颜色编码的边界框来创建注释. (遵循 [15])</span></p></li><li><p><strong><span>人体姿势</span></strong><span>: 人体骨架以像素空间中的 OpenPose 格式呈现, 利用 MMPose. (遵循 [20])</span></p></li><li><p><strong><span>深度估计</span></strong><span>、</span><strong><span>表面法线</span></strong><span>、</span><strong><span>边缘检测</span></strong><span>: 基于 ImageNet 和 COCO 图像. (遵循 [55])</span></p></li><li><p><strong><span>风格迁移</span></strong><span>、</span><strong><span>去雨</span></strong><span>、</span><strong><span>去噪</span></strong><span>、</span><strong><span>低光增强</span></strong><span>、</span><strong><span>立体数据集</span></strong><span>: 表示为图像对 (输入-输出).</span></p></li><li><p><strong><span>着色</span></strong><span>: 将 ImageNet 对图像转换为灰度图像, 生成图像对.</span></p></li><li><p><strong><span>补全</span></strong><span>: 在图像中随机添加黑色框, 产生图像对.</span></p></li></ul><p><span>对于上述所有注释类型, 可以用下面方法产生视觉句子:</span></p><ul><li><p><span>将相同注释类型的 8 个图像对连接在一起形成 16 个图像对视觉句子.</span></p></li><li><p><span>对于包含相同图像对 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.179ex" height="1.595ex" role="img" focusable="false" viewBox="0 -694 521 705" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-12-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D458" xlink:href="#MJX-12-TEX-I-1D458"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">k</script><span> 个不同注释的数据集, 对每组 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.076ex" height="1.756ex" role="img" focusable="false" viewBox="0 -694 2243.4 776" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.186ex;"><defs><path id="MJX-11-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-11-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-11-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-11-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(722.2,0)"><use data-c="2B" xlink:href="#MJX-11-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(1722.4,0)"><use data-c="1D458" xlink:href="#MJX-11-TEX-I-1D458"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mi>k</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">1+k</script><span> 个图像 (输入+</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.179ex" height="1.595ex" role="img" focusable="false" viewBox="0 -694 521 705" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-12-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D458" xlink:href="#MJX-12-TEX-I-1D458"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">k</script><span> 个输出), 随机选择 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.986ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 878 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-16-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-16-TEX-I-1D45A"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">m</script><span> 个元素, </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="15.537ex" height="1.819ex" role="img" focusable="false" viewBox="0 -666 6867.6 804" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.312ex;"><defs><path id="MJX-14-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-14-TEX-N-2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path id="MJX-14-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-14-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-14-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-14-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-14-TEX-I-1D45A"></use></g><g data-mml-node="mo" transform="translate(1155.8,0)"><use data-c="2264" xlink:href="#MJX-14-TEX-N-2264"></use></g><g data-mml-node="mi" transform="translate(2211.6,0)"><use data-c="1D45B" xlink:href="#MJX-14-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(3033.8,0)"><use data-c="2B" xlink:href="#MJX-14-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(4034,0)"><use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(4811.8,0)"><use data-c="2264" xlink:href="#MJX-14-TEX-N-2264"></use></g><g data-mml-node="mn" transform="translate(5867.6,0)"><use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use><use data-c="36" xlink:href="#MJX-14-TEX-N-36" transform="translate(500,0)"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mo>≤</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo>≤</mo><mn>16</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">m\leq n+1\leq16</script><span>, </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.357ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 600 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-15-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-15-TEX-I-1D45B"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">n</script><span> 是被选择的输出数, 将这些 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.986ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 878 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-16-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-16-TEX-I-1D45A"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">m</script><span> 元组连接起来形成视觉序列.</span></p></li></ul></li><li><p><strong><span>带标注的图像序列 (Image sequences with annotations)</span></strong><span>. 占数据量 0.06%. 采用两种互补策略:</span></p><ul><li><p><span>{frame1, annot1, frame2, annot2, ...}</span></p></li><li><p><span>{frame1, frame2, annot1, annot2, ...}</span></p></li></ul></li></ul><p><span>数据的详细构成如下表所示.</span></p><p><img src="./img/datas_conponent.png" referrerpolicy="no-referrer" alt="datas_conponent"></p><p>&nbsp;</p><h2 id='4-approach'><span>4. Approach</span></h2><p><span>训练分为两个阶段: </span></p><ul><li><p><span>训练一个大型的视觉标记器 (visual tokenizer), 它操作于单个图像上, 将图像转换成一系列视觉词元 (token).</span></p></li><li><p><span>训练一个自回归的 Transformer 模型, 每个视觉句子都表示为一系列的的词元 (token).</span></p></li></ul><p><img src="./img/architetcture.png" referrerpolicy="no-referrer" alt="architetcture"></p><h3 id='41-image-tokenization'><span>4.1 Image Tokenization</span></h3><ul><li><p><span>在一个图像内, 我们并没有自然的序列结构. 先前的做法有两种: (1) 像 ViT 一样将图像打成 patches, 并将它们当作序列; (2) 使用预训练的 image tokenizer, 例如 VQVAE 和 VQGAN, 将图像的特征提取为离散的 tokens 网格, 并将它们当作序列.</span></p><p><span>本工作采用后者, 因为模型离散类别的输出自然地形成了一个概率分布, 这可以更方便的在视觉句子中条件生成新图像时采样.</span></p></li><li><p><span>本文使用 VQGAN 生成 tokens. VQGAN 由 Encoder 和 Decoder 组成, 给定一个图像, VQGAN tokenizer 产生 256 个离散的 tokens.</span></p></li><li><p><span>值得注意的是, VQGAN tokenizer 独立地在各个图像上操作, 而不是以证词在整个视觉句子上操作. 这种独立性使 tokenizer 的训练与下游的 Transformer 模型分开, 使得 tokenizer 可以在单个图像的数据集上进行训练, 而不必考虑视觉句子的分布.</span></p></li></ul><p><strong><span>实现细节</span></strong><span>: downsampling factor 为 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="6.524ex" height="2.059ex" role="img" focusable="false" viewBox="0 -705 2883.6 910" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.464ex;"><defs><path id="MJX-17-TEX-I-1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path><path id="MJX-17-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-17-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-17-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D453" xlink:href="#MJX-17-TEX-I-1D453"></use></g><g data-mml-node="mo" transform="translate(827.8,0)"><use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1883.6,0)"><use data-c="31" xlink:href="#MJX-17-TEX-N-31"></use><use data-c="36" xlink:href="#MJX-17-TEX-N-36" transform="translate(500,0)"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi><mo>=</mo><mn>16</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">f=16</script><span>, codebook size 为 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 2000 688" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.05ex;"><defs><path id="MJX-18-TEX-N-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path id="MJX-18-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-18-TEX-N-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path id="MJX-18-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><use data-c="38" xlink:href="#MJX-18-TEX-N-38"></use><use data-c="31" xlink:href="#MJX-18-TEX-N-31" transform="translate(500,0)"></use><use data-c="39" xlink:href="#MJX-18-TEX-N-39" transform="translate(1000,0)"></use><use data-c="32" xlink:href="#MJX-18-TEX-N-32" transform="translate(1500,0)"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>8192</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">8192</script><span>. 实验发现在 ImageNet 上预训练的 tokenizer 不能泛化到数据集以外, 因此在 LAION 5B 数据集上的 1.5B 子集上预训练.</span></p><h3 id='42-sequence-modeling-of-visual-sentences'><span>4.2 Sequence Modeling of Visual Sentences</span></h3><p><span>将图像转换为 VQGAN 的离散 tokens 后, 将多个图像的离散 tokens 连接成一维序列, 将视觉句子视为统一序列. </span><strong><span>所有的句子都被平等的对待, 不使用任何特殊 tokens 来特定任务或格式</span></strong><span>. 使用交叉熵损失训练一个因果 Transformer 模型, 器目标是预测下一个 tokens. </span><strong><span>注意是预测下一个 tokens, 而不是下一个图像</span></strong><span>. 这与语言模型中的标准方法相同. </span></p><p><span>以相同的方式训练模型处理所有的视觉句子, </span><strong><span>使得模型能够从上下文而不是任务或特定的 tokens 中推断图像之间的关系, 这让模型更有机会推广到其它未见过的视觉句子结构</span></strong><span>.</span></p><p><strong><span>实现细节</span></strong><span>: 采用了 LLaMA 的 Transformer 架构, 使用4096个 tokens 的上下文长度, 即可以容纳16幅图像组成的视觉句子. 在每个视觉句子的开头添加一个开始 token ([BOS]), 结束添加一个句子结束 token ([EOS]). 本工作训练了四个模型: LVM-300M, LVM-600M, LVM-1B, LVM-3B, 超参数设计如下:</span></p><p><img src="./img/configurations.png" referrerpolicy="no-referrer" alt="configurations"></p><h3 id='43-inference-by-visual-prompting'><span>4.3 Inference by Visual Prompting</span></h3><ul><li><p><span>由于我们模型中的自回归 Transformer 会在先前令牌的条件下输出下一个令牌的概率分布, 我们可以轻松地从这个分布中采样以生成新的视觉令牌, 从而完成一个视觉句子.</span></p></li><li><p><span>为了将模型用于下游任务, 可以在测试时构建定义任务的部分视觉句子, 并应用模型生成输出. 这类似于语言模型中的上下文学习或计算机视觉中的视觉提示.</span></p></li></ul><p>&nbsp;</p><h2 id='5-experimental-results-and-analysis'><span>5. Experimental Results and Analysis</span></h2><h3 id='51-scalability'><span>5.1 Scalability</span></h3><ul><li><p><strong><span>训练损失 (Train Loss)</span></strong><span>. 如下图所示. 所有模型</span><strong><span>仅在数据集上训练了一个 epoch</span></strong><span>, 因此训练损失和验证损失非常相似. 可以观察到随着训练的进行:</span></p><ul><li><p><span>模型困惑度都持续减小 (无论其大小如何).</span></p></li><li><p><span>随着参数量的增加, 损失下降得更快.</span></p></li></ul><p><img src="./img/train_loss.png" referrerpolicy="no-referrer" alt="train_loss"></p></li><li><p><strong><span>在下游基准测试的可扩展性 (Scalability on downstream benchmarks)</span></strong><span>. 分别在</span><strong><span>语义分割</span></strong><span>、</span><strong><span>深度估计</span></strong><span>、</span><strong><span>表面法线估计</span></strong><span>、</span><strong><span>边缘检测</span></strong><span>四个下游任务上评估. 对于每个任务, 给出五对输入-输出的样例, 并紧接着一个待测试的图像, 并评估其困惑度. 实验结果如下图所示.</span></p><p><img src="./img/downstream_task.png" referrerpolicy="no-referrer" alt="downstream_task"></p></li><li><p><strong><span>数据集消融实验 (Dataset ablation)</span></strong><span>. 虽然 LVM 在更大的模型和更多的数据上获得了更好的性能, 但自然会问为我们在 UVDv1 中手机的每个数据组建是否都有助于此. 因此在数据集上做了消融实验. 通过在数据集的子集上训练几个 3B 模型, 并比较它们在下游任务上的表现. 结果展示如下, 其证明了 LVM 不仅从更大的数据中受益, 嗨随着数据集中的多样性提高而改善.</span></p><p><img src="./img/dataset_ablation.png" referrerpolicy="no-referrer" alt="dataset_ablation"></p></li></ul><h3 id='52-sequential-prompting'><span>5.2 Sequential Prompting</span></h3><p><span>从最直观、最简单的方法开始, 即使用视觉提示来引导 LVM 进行顺序推理. 这里的提示构建非常简单: 向模型展示 7 幅图像的序列, 并要求它预测下一幅图像.</span></p><ul><li><p><strong><span>视频帧预测 (Video frame prediction)</span></strong><span>. 在 Kinetics-700 验证集上预测, 结果如下图所示.</span></p><p><img src="./img/video_frame_predict.png" referrerpolicy="no-referrer" alt="video_frame_predict"></p></li><li><p><strong><span>旋转和类别预测 (Rotation and Category prediction)</span></strong><span>. 旋转和类别预测的结果如下两图所示.</span></p><p><img src="./img/rotation.png" referrerpolicy="no-referrer" alt="rotation"></p><p><img src="./img/classification.png" referrerpolicy="no-referrer" alt="classification"></p></li><li><p><strong><span>上下文长度分析 (Context length analysis)</span></strong><span>. 接下来探讨这么一个问题: 准确预测后续帧需要多少时间上下文? 实验评估了在不同长度 (1到15帧) 的上下文提示下模型生成帧的困惑度, 如下图所示.</span></p><p><img src="./img/context_length.png" referrerpolicy="no-referrer" alt="context_length"></p></li></ul><h3 id='53-analogy-prompting'><span>5.3 Analogy Prompting</span></h3><p><span>实验研究通过评估一种更复杂的提示结构而取得进展, 我们称之为</span><strong><span>类比提示 (Analogy Prompting)</span></strong><span>. 这种方法挑战模型理解任意长度和复杂度的类比, 从而测试其高级解释能力.</span></p><ul><li><p><strong><span>定性结果 (QualitativeResults)</span></strong><span>. 下图展示了使用类比实验的一些定性结果样本. </span></p><p><img src="./img/qualitative_results.png" referrerpolicy="no-referrer" alt="qualitative_results"></p></li><li><p><strong><span>未见过的任务和数据集 (Unseen Tasks and Dataset)</span></strong><span>. 实验展示了在 Pascal 3D+ 上进行关键点检测的结果, 使用标准的正确关键点百分比 (PCK) 指标评估, 阈值为 0.1. 值得注意的是, LVM 在没有在这个数据集上训练的情况下实现了81.2的 PCK, 展示了令人印象深刻的泛化能力. 相比之下, 我们展示了一些现有的特定任务模型: StackedHourglass 的得分是 68.0 PCK, MSS-Net 实现了 68.9 PCK, StarMap 达到了 78.6 PCK. 如下图所示.</span></p></li><li><p><strong><span>与其它视觉提示模型的比较 (Comparison with Visual Prompting)</span></strong><span>. 下表对比了各种视觉提示模型在小样本分割、物体检测、着色任务上的表现, LVM 几乎在所有的任务上都超过了之前的方法.</span></p><p><img src="./img/comparison.png" referrerpolicy="no-referrer" alt="comparison"></p></li><li><p><strong><span>任务合成 (Task Compositing)</span></strong><span>. 下图展示了旋转任务、关键点任务的结合.</span></p><p><img src="./img/keypoints.png" referrerpolicy="no-referrer" alt="keypoints"></p></li></ul><h3 id='54-miscellaneous-prompts'><span>5.4 Miscellaneous Prompts</span></h3><p><span>在这里, 我们尝试看看我们的模型在面对之前未见过的各种提示时能够达到何种程度.</span></p><p><span>下图展现了一些恰好表现相当不错的提示.</span></p><p><img src="./img/great.png" referrerpolicy="no-referrer" alt="great"></p><p><span>下图展示了</span><strong><span>一些用语言不易描述的提示. 这些是 LVM 可能最终超越 LLM 的任务类型.</span></strong></p><p><img src="./img/what_is_next.png" referrerpolicy="no-referrer" alt="what_is_next"></p><p><span>下图展示了在 </span><strong><span>非语言人类智力测试 (Raven’s Progressive Matrices)</span></strong><span> 的推理结果.</span></p><p><img src="./img/AGI.png" referrerpolicy="no-referrer" alt="AGI"></p><p>&nbsp;</p><h2 id='6-limitations'><span>6. Limitations</span></h2><p><span>下图展示了一些失败的案例. 一个共同的元素是, 使用视觉提示来定义任务往往受到不充分的约束 (比语言更甚, 因为图像是非常高维的), 或者所请求的任务可能超出了当前系统的能力. 其他更普通的失败包括分词器问题和缺乏高质量视频训练数据.</span></p><p><img src="./img/Failure.png" referrerpolicy="no-referrer" alt="Failure"></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
+</html>
